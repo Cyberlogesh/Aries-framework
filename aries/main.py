@@ -1,6 +1,9 @@
 import sys
 import os
 
+# Import your engine class
+from core.aries_engine import AriesEngine
+
 # Purple Team Color Scheme
 PURPLE = "\033[95m"
 CYAN = "\033[96m"
@@ -48,7 +51,9 @@ def help_menu():
     """)
 
 def main():
-    engine = ()
+    # 🔥 FIXED: Create real engine object
+    engine = AriesEngine()
+
     clear()
     banner()
     help_menu()
@@ -61,6 +66,7 @@ def main():
                 parts = command.split()
                 if len(parts) == 2:
                     engine.set_target(parts[1])
+                    print(f"{GREEN}[+] Target set to {parts[1]}{RESET}")
                 else:
                     print(f"{RED}[-] Usage: set <IP>{RESET}")
 
